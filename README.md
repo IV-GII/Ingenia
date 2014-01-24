@@ -10,3 +10,8 @@ Juan Moral Fernandez
 Rafael Carrasco Ruiz
 
 Fernando Llodra Belda
+
+De qué va
+--
+
+Aquí explicaremos de qué va el tema.
