@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Administrar Pedidos - INGENIA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/pedidos/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="../../static/pedidos/css/stylish-portfolio.css" rel="stylesheet">
+    <link href="../../static/pedidos/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Full Page Image Header Area -->
+    <div id="top" class="header">
+        <div class="vert-text">
+        	<h2>Administración de Pedidos</h2><br>
+		<h4>Actualizar Estado de Pedido</h4>
+	
+		<!-- Formulario para cambiar el estado del pedido. -->
+		<form method="post" style="text-align:left; margin-left:35%" >{% csrf_token %}
+
+			{{ form.as_p }}
+			
+			<input type="submit" name="submit" value="Actualizar">
+		</form>
+
+		<br><br>
+	
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-12 column"><td>
+					<div class="panel-group" id="panel-854654">
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Revisión</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado1 %}							
+		      
+							      {% for npe in lista_estado1 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Pte Entrada Producción</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado2 %}							
+		      
+							      {% for npe in lista_estado2 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Producción</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado3 %}							
+		      
+							      {% for npe in lista_estado3 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Pte Empaquetar</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado4 %}							
+		      
+							      {% for npe in lista_estado4 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Pte Instalación</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado5 %}							
+		      
+							      {% for npe in lista_estado5 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Instalación Terminada</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado6 %}							
+		      
+							      {% for npe in lista_estado6 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Listo Recogida</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado7 %}							
+		      
+							      {% for npe in lista_estado7 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Listo Transporte</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado8 %}							
+		      
+							      {% for npe in lista_estado8 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					      <div class="panel panel-default">
+						    <div class="panel-heading">
+							  <a class="panel-title" data-toggle="collapse" data-parent="#panel-854654">Completado</a>
+						    </div>
+							<div id="panel-element-590421" class="panel-collapse collapse in">
+							{% if lista_estado9 %}							
+		      
+							      {% for npe in lista_estado9 %}
+								      <div class="panel-body">
+									    <b>Número Pedido:</b> {{ npe.num_pedido }}
+									    <b>Cliente:</b> {{ npe.usuario }}
+									    <b>Concepto:</b> {{ npe.concepto }}
+									    <b>Recepcion:</b>{{ npe.forma_de_recepcion }}
+								      </div>
+							      {% endfor %}
+
+							{% else %}
+							      <div class="panel-body">
+								    <p>No existen pedidos en este estado.</p></td>					
+							      </div>
+							{% endif %}
+											
+							</div>
+					      </div>
+					</div>
+				</div>
+ 			</div>
+		</div>
+		
+		<br><br>
+		<a href="/ingenia/administrar/" class="btn btn-default btn-lg">Volver atrás</a>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <ul class="list-inline">
+                        <li><i class="fa fa-facebook fa-3x"></i>
+                        </li>
+                        <li><i class="fa fa-twitter fa-3x"></i>
+                        </li>
+                    </ul>
+                    <div class="top-scroll">
+                        <a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
+                    </div>
+                    <hr>
+                    <p>Copyright &copy; Ingenia Tracking Team 2014<br><font size="-3">Francisco Valverde, Fernando Llodra, Rafael Carrasco, Juan Moral</font></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+
+    </script>
+
+</body>
+
+</html>
