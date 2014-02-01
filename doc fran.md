@@ -7,14 +7,101 @@ Despues de pensar detenidamente en que lenguaje trabajar, preguntándonos los pr
 - Open Source<br>
 - Arquitectura: Modelo, Vista, Template
 
-El siguiente paso es realizar la creación de un proyecto donde correrá nuestra aplicación. No es una tarea para realizar a la ligera ya que tuvimos que realizar hasta cuatro veces los siguientes pasos debidos a problemas con las bases de datos en el que la única solución que encontramos era trasladar el proyecto a un nuevo proyecto.
+El siguiente paso es realizar la creación de un proyecto donde correrá nuestra aplicación. No es una tarea para realizar a la ligera ya que tuvimos que realizar hasta cuatro veces los siguientes pasos debidos a problemas con las bases de datos en el que la única solución que encontramos era trasladar el proyecto a un nuevo proyecto. Este proceso se automatizo con recetas realizadas en chef que posteriormente mostraremos.
 
-1 - Crear un proyecto<br>
-2 - Crear una aplicación dentro del proyecto<br>
-3 - Poner la base de datos (SQL) y demás en settings.py<br>
-4 - Crear la BD<br>
-5 - Definir el modelo en app/models.py<br>
-6 - Añadir los módulos en settings.py<br>
+Pasos para crear la aplicación Ingenia Tracking
+-----------------------------------------------
+
+1 - Crear un proyecto
+~~~~~~{.python}
+ virtualenv ENV1  # crea un entorno virtual
+ cd ENV1
+ source bin/activate
+ pip install Django  # instala django 
+ django-admin.py startproject ingenia  # crea el proyecto
+ cd ingenia/
+~~~~~~
+2 - Crear una aplicación dentro del proyecto
+~~~~~~{.python}
+ python manage.py runserver  # Funciona!
+ python manage.py syncdb  # mira INSTALLED_APP y crea las tablas necesarias para cada uno de los programas.
+ python manage.py startapp pedidos  # crea la aplicación pedidos
+~~~~~~
+3 - Definir la Base de Datos<p>
+Crearemos para esta primera aproximación cuatro tablas (Cliente, Pedidos, Estado, EstadosPedidos), como ya se ha comentado previamente es necesario tener claro este aspecto porque cualquier modificación nos ha provocado volver a realizar estos pasos para que funcione bien.<br>
+Cliente será la tabla que contenga la información relacionada con los clientes que han realizado un pedido. Estos clientes son dados de alta por un personal de la empresa.<br>
+Pedidos mantendrá todos los pedidos que se han realizado asociandolos a un usuario para que este pueda consultarlos y pueda ver el estado de su pedido.<br>
+Estado es la tabla donde aparecen todos los estados por los que pasa un pedido hasta llegar a completado.<br>
+EstadosPedidos es una tabla que nos sirve de unión para posteriores consultas</p>
+4 - Definir el modelo en app/models.py
+~~~~~~{.python}
+ nano pedidos/models.py  # Es el archivo donde se diseñan las tablas de la base de datos
+ 
+ class Usuarios (models.Model):
+	nombre = models.CharField (max_length=100)
+	correo_electronico = models.CharField (max_length=300)
+	password = models.CharField (max_length=30)
+	rol = models.CharField (max_length=30)
+	
+ class Estados (models.Model):
+	nombre_estado = models.CharField (max_length=30)
+	
+ class Pedidos (models.Model):
+	usuario = models.ForeignKey (Usuarios)
+	num_pedido = models.CharField (max_length=15)
+	concepto = models.CharField(max_length=200)
+	estado = models.ForeignKey (Estados)
+	telefono_tecnico = models.CharField (max_length=12, blank=True)
+	forma_de_recepcion = models.CharField (max_length=30, blank=True)
+		
+class EstadosPedidos (models.Model):
+	num_pedido = models.ForeignKey (Pedidos)
+	estado = models.ForeignKey (Estados)
+~~~~~~
+5 - Añadir los módulos en settings.py
+~~~~~~{.python}
+ nano ingenia/settings.py  # para añadir pedidos en INSTALLED_APPS
+ 
+ INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'pedidos',
+ )
+~~~~~~
+6 - Crear la Base de Datos
+~~~~~~{.python}
+ python manage.py sql pedidos
+ python manage.py syncdb  # se crea la BD
+~~~~~~
+7 - Crear los mappings para las urls en urls.py<p>
+Lo primero que debemos saber es qué queremos decir cuando hablamos de vistas. Vista o función de vista es una función de Python que toma como argumento una petición web (request) y devuelve una respuesta (response). Es la forma que tiene django de trabajar es por ello que hay que mapear las urls para que realice la redirección de URLs a vistas.
+~~~~~~{.python}
+# Redireccionamos todos las urls que empiecen por ingenia al archivo pedidos.urls que contiene el mapeo a las vistas.
+urlpatterns = patterns('',
+    # Examples:
+    url(r'^ingenia/', include('pedidos.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+)
+~~~~~~
+8 - Definir las vistas en pedidos/views.py
+<p>
+Las vistas son clases que son usadas cuando se introduce una url y el archivo urls.py redirecciona a una de las clases que se encuentran en el archivo view.py. Son en estas clases donde nace la mágia y se realizan todas las operaciones para que despues se sirva el contenido en el navegador web.<br>
+Es es necesario realizar la importación de el paquete template para poder hacer uso de las plantillas
+~~~~~~{.python}
+from django.shortcuts import render
+from django.template import RequestContext, loader
+~~~~~~
+Una vez se haya trabajado con los datos se renderizan estos datos a un archivo .html para que se muestren los datos con aspecto atractivo.<br>
+En las siguientes secciones veremos mas de cerca cada vista.</p>
+
+
+Chef
+====
+
 
 Alta de usuario
 ===============
