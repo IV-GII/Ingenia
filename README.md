@@ -287,7 +287,7 @@ Forma de mostrar un estado.
 		
 	{% else %}
 		<div class="panel-body">
-			<p>No existen pedidos en este estado.</p></td>						
+			<p>No existen pedidos en este estado.</p>				
 		</div>
 	{% endif %}
 										
