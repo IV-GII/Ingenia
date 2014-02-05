@@ -229,7 +229,7 @@ pip install Django  # instala django
 ```
 Ahora simplemente entramos en el directorio de nuestra app y ejecutamos `python manage.py runserver 0.0.0.0:8000 &`. 
 
-**Nota:** He tenido que hacer uso de el comando `screen` para poder dejar la aplicación corriendo con django en la maquina virtual una vez terminada la comunicación por ssh.
+**Nota:** He tenido que hacer uso del comando `screen` para poder dejar la aplicación corriendo con django en la maquina virtual una vez terminada la comunicación por ssh.
 
 Ya podemos cerrar la comunicación con la maquina virtual de Azure y comprobamos que nuestra aplicación funciona perfectamente en la URL [http://ubuntu1204peq.cloudapp.net/ingenia/](http://ubuntu1204peq.cloudapp.net/ingenia/).
 
