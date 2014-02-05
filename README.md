@@ -12,7 +12,7 @@ Fernando Llodra Belda<br>
 Introducción
 ============
 
-Lo primero que hicimos para desarrollar la aplicación de Ingenia Tracking fué pedir a Melesio (Director Gerente de la empresa Ingenia Digital) una cita para que nos hablará un poco de más de la empresa. El, nos ofreció ir en persona a ver como trabajan en Ingenia Digital asi que aceptamos obviamente. Una vez allí recopilamos información acerca de la estructura de la empresa, el flujo de trabajo, disponibilidad de servidores en caso de necesitarlos y ultimamos detalles sobre que se pedía para la aplicación que ibamos a desarrollar.
+Lo primero que hicimos para desarrollar la aplicación de Ingenia Tracking fué pedir a Melesio (Director Gerente de la empresa Ingenia Digital) una cita para que nos hablara un poco de más de la empresa. El, nos ofreció ir en persona a ver como trabajan en Ingenia Digital asi que aceptamos obviamente. Una vez allí recopilamos información acerca de la estructura de la empresa, el flujo de trabajo, disponibilidad de servidores en caso de necesitarlos y ultimamos detalles sobre que se pedía para la aplicación que ibamos a desarrollar.
 Hemos plasmado en nuestra aplicación, según los requisitos de Ingenia Digital, como funciona todo el proceso de trabajo en la empresa y para ello hemos creado una plataforma que servirá tanto para que los trabajadores de la empresa ingenia puedan acceder y administrar usuarios y pedidos, como para los clientes, pudiendo éstos entrar en la plataforma también con el simple permiso de poder ver como se encuentra su pedido (en que fase de desarrollo está).
 
 
