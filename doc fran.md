@@ -105,6 +105,23 @@ Chef
 
 Alta de usuario
 ===============
+Esta vista solo se podrá acceder su eres un trabajador de la empresa. Una vez que el cliente solicita el seguimiento de su pedido, uno de los trabajadores de la empresa Ingenia le dará de alta en el sistema, facilitándole un usuario y una contraseña de acceso.<br><br>
+Esta es la apariencia que cuenta el alta de usuario:
+
+![captura_alta](https://dl.dropbox.com/s/6dqdhta5crp1wgf/alta_user.png)
+
+Como se puede apreciar se trata de un simple formulario que una vez que sea valido sus entradas se añadirá una nueva fila a la tabla de usuarios.
+
+Para poder mostrar un formulario en django se debe generar una clase especifica en el archivo forms.py de la carpeta de nuestra aplicación. En este caso como vamos a usar todos los campos de la tabla podemos hacerlo tal que así:
+~~~~~~{.python}
+class UsuariosForm(forms.ModelForm):
+	class Meta:
+             password = forms.CharField(widget=forms.PasswordInput)
+             model = Usuarios
+             widgets = {
+                 'password': forms.PasswordInput(),
+             }
+~~~~~~
 
 
 Asignar Pedido a usuario
