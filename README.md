@@ -57,25 +57,25 @@ EstadosPedidos es una tabla que nos sirve de unión para posteriores consultas</
  nano pedidos/models.py  # Es el archivo donde se diseñan las tablas de la base de datos
  
  class Usuarios (models.Model):
-	nombre = models.CharField (max_length=100)
-	correo_electronico = models.CharField (max_length=300)
-	password = models.CharField (max_length=30)
-	rol = models.CharField (max_length=30)
-	
+    nombre = models.CharField (max_length=100)
+    correo_electronico = models.CharField (max_length=300)
+    password = models.CharField (max_length=30)
+    rol = models.CharField (max_length=30)
+    
  class Estados (models.Model):
-	nombre_estado = models.CharField (max_length=30)
-	
+    nombre_estado = models.CharField (max_length=30)
+    
  class Pedidos (models.Model):
-	usuario = models.ForeignKey (Usuarios)
-	num_pedido = models.CharField (max_length=15)
-	concepto = models.CharField(max_length=200)
-	estado = models.ForeignKey (Estados)
-	telefono_tecnico = models.CharField (max_length=12, blank=True)
-	forma_de_recepcion = models.CharField (max_length=30, blank=True)
-		
+    usuario = models.ForeignKey (Usuarios)
+    num_pedido = models.CharField (max_length=15)
+    concepto = models.CharField(max_length=200)
+    estado = models.ForeignKey (Estados)
+    telefono_tecnico = models.CharField (max_length=12, blank=True)
+    forma_de_recepcion = models.CharField (max_length=30, blank=True)
+        
 class EstadosPedidos (models.Model):
-	num_pedido = models.ForeignKey (Pedidos)
-	estado = models.ForeignKey (Estados)
+    num_pedido = models.ForeignKey (Pedidos)
+    estado = models.ForeignKey (Estados)
 ~~~~~~
 5 - Añadir los módulos en settings.py
 ~~~~~~{.python}
@@ -167,10 +167,35 @@ Chef
 
 Alta de usuario
 ===============
+Esta vista solo se podrá acceder su eres un trabajador de la empresa. Una vez que el cliente solicita el seguimiento de su pedido, uno de los trabajadores de la empresa Ingenia le dará de alta en el sistema, facilitándole un usuario y una contraseña de acceso.<br><br>
+Esta es la apariencia que cuenta el alta de usuario:
 
+![captura_alta](https://dl.dropbox.com/s/6dqdhta5crp1wgf/alta_user.png)
 
+Como se puede apreciar se trata de un simple formulario que una vez que sea valido sus entradas se añadirá una nueva fila a la tabla de usuarios.
+
+Para poder mostrar un formulario en django se debe generar una clase especifica en el archivo forms.py de la carpeta de nuestra aplicación. En este caso como vamos a usar todos los campos de la tabla podemos hacerlo tal que así:
+~~~~~~{.python}
+class UsuariosForm(forms.ModelForm):
+    class Meta:
+             password = forms.CharField(widget=forms.PasswordInput)
+             model = Usuarios
+             widgets = {
+                 'password': forms.PasswordInput(),
+             }
+~~~~~~
 Asignar Pedido a usuario
 ========================
+La vista de asignar pedido es de solo acceso para los trabajadores, esto al igual en otras vistas de la parte de administración se ha restringido mediante sesiones de usuario donde dependiendo el rol del usuario tendrá acceso a una zona u a otra. Esta clase se encarga de mostrar un formulario para dar de alta pedidos asignandolos a usuarios ya dados de alta en la plataforma. Además de indicarle otros datos como el estado del pedido, el concepto, etc.
+
+![captura_asigna](https://dl.dropbox.com/s/bslwg163133rspb/asigna_pedido.png)
+
+Para poder mostrar un formulario en django se debe generar una clase especifica en el archivo forms.py como ya se ha comentado previamente. En este caso al igual que en alta de usuario se van a usar todos los campos por lo que la clase queda de la siguiente manera:
+~~~~~~{.python}
+class PedidosForm(forms.ModelForm):
+    class Meta:
+        model = Pedidos
+~~~~~~
 
 
 
