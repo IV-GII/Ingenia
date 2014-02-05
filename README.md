@@ -177,7 +177,11 @@ Como se puede apreciar se trata de un simple formulario que una vez que sea vali
 Para poder mostrar un formulario en django se debe generar una clase especifica en el archivo forms.py de la carpeta de nuestra aplicación. En este caso como vamos a usar todos los campos de la tabla podemos hacerlo tal que así:
 ~~~~~~{.python}
 class UsuariosForm(forms.ModelForm):
+<<<<<<< HEAD
     class Meta:
+=======
+	class Meta:
+>>>>>>> ccc162b7011f9f07f28a390318f1a7ea12b95eb0
              password = forms.CharField(widget=forms.PasswordInput)
              model = Usuarios
              widgets = {
@@ -193,8 +197,13 @@ La vista de asignar pedido es de solo acceso para los trabajadores, esto al igua
 Para poder mostrar un formulario en django se debe generar una clase especifica en el archivo forms.py como ya se ha comentado previamente. En este caso al igual que en alta de usuario se van a usar todos los campos por lo que la clase queda de la siguiente manera:
 ~~~~~~{.python}
 class PedidosForm(forms.ModelForm):
+<<<<<<< HEAD
     class Meta:
         model = Pedidos
+=======
+	class Meta:
+		model = Pedidos
+>>>>>>> ccc162b7011f9f07f28a390318f1a7ea12b95eb0
 ~~~~~~
 
 
