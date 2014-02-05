@@ -1,7 +1,7 @@
 Puesta a punto de Ingenia Tracking
 ==================================
 
-Despues de pensar detenidamente en que lenguaje trabajar, preguntándonos los pros y contras de cada uno nos decantamos por python, concretamente en el framework django por varios motivos:
+Después de pensar detenidamente en que lenguaje trabajar, preguntándonos los pros y contras de cada uno nos decantamos por python, concretamente en el framework django por varios motivos:
 - Es el framework para Python más usado<br>
 - Esta enfocado a sitios basados en bases de datos<br>
 - Open Source<br>
@@ -98,7 +98,6 @@ from django.template import RequestContext, loader
 Una vez se haya trabajado con los datos se renderizan estos datos a un archivo .html para que se muestren los datos con aspecto atractivo.<br>
 En las siguientes secciones veremos mas de cerca cada vista.</p>
 
-
 Chef
 ====
 
@@ -122,11 +121,18 @@ class UsuariosForm(forms.ModelForm):
                  'password': forms.PasswordInput(),
              }
 ~~~~~~
-
-
 Asignar Pedido a usuario
 ========================
+La vista de asignar pedido es de solo acceso para los trabajadores, esto al igual en otras vistas de la parte de administración se ha restringido mediante sesiones de usuario donde dependiendo el rol del usuario tendrá acceso a una zona u a otra. Esta clase se encarga de mostrar un formulario para dar de alta pedidos asignandolos a usuarios ya dados de alta en la plataforma. Además de indicarle otros datos como el estado del pedido, el concepto, etc.
 
+![captura_asigna](https://dl.dropbox.com/s/bslwg163133rspb/asigna_pedido.png)
+
+Para poder mostrar un formulario en django se debe generar una clase especifica en el archivo forms.py como ya se ha comentado previamente. En este caso al igual que en alta de usuario se van a usar todos los campos por lo que la clase queda de la siguiente manera:
+~~~~~~{.python}
+class PedidosForm(forms.ModelForm):
+	class Meta:
+		model = Pedidos
+~~~~~~
 
 
 
