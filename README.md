@@ -238,3 +238,7 @@ Ya podemos cerrar la comunicación con la maquina virtual de Azure y comprobamos
 
 
 
+Copyright 2014 Fernando Llodra Belda, Francisco Valverde Villalba, Rafael Carrasco Ruiz, Juan Moral Fernandez.
+
+
+
