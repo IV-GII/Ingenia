@@ -305,10 +305,39 @@ En está página se muestra el estado de los pedidos de un usuario en concreto. 
   - Estado: Situación actual en la que se encuentra el pedido. Los diferentes estados que pueden darse son (por orden de             ascendente): Revisión, Pte entrada producción, Producción, Pte empaquetar, Pte instalación, Listo Recogida,             Listo transporte, Instalación terminada, Completo.
   - % Completado: Dependiendo del estado del pedido, muestra el % de realización de éste a través de una barra de                         estado.
   - Contacto técnico: Cuando un estado necesita la instalación de un profesional de la empresa, se muestra un número de                       contacto para poder establecer una cita personalmente con la persona encargada. 
-  - Entrega 
+  - Entrega: Detalles sobre la entrega del pedido, ya sea a través de un servicio de transporte o recogida en la                     empresa. 
 
+Aquí tenemos una muestra de la vista de la página, en la que podemos observar los campos antes mencionados:
 
+![im1](https://dl.dropbox.com/s/6xrdo6f5pq6lb0l/Nueva%20imagen%20%283%29.bmp)
 
+Como se muestra en la imagen anterior, la página también proporciona el nombre del cliente logueado junto a la opción de cerrar sesión.
+
+Para hacer posible esta página, se necesita la función estado_pedido, que se encuentra dentro de views.py. El código de esta función es el siguiente:
+
+~~~~~~{.python}
+def estado_pedido(request):
+    usuario = request.session["usuario"]
+    if usuario != '':
+        no_encontrado = True
+        id_usuario=1
+        while no_encontrado:
+            m = Usuarios.objects.get(id=id_usuario)
+            if m.nombre == usuario:
+                no_encontrado = False 
+            else:
+                id_usuario = id_usuario + 1
+        lista_pedidos = Pedidos.objects.filter(usuario=id_usuario)
+        context = {'lista_pedidos' : lista_pedidos, "usuario": usuario}
+        return render(request,'pedidos/estado_pedido.html', context) 
+        
+    else:
+        form = LoginForm()
+        args = {}
+        args.update(csrf(request))
+        args['form'] = form
+        return render(request,'pedidos/index.html',args)      
+~~~~~~
 
 
 
