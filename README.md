@@ -342,7 +342,6 @@ def estado_pedido(request):
 
 
 
-
 Alojamiento con Windows Azure
 =============================
 
