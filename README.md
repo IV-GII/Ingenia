@@ -295,6 +295,25 @@ Forma de mostrar un estado.
 </div>
 ~~~~~~
 
+Vista de cliente
+=================
+
+En está página se muestra el estado de los pedidos de un usuario en concreto. Cuando un usuario tipo "cliente" se loguea, accede directamente a esta vista, en la que se muestra información de cada uno de los pedidos que el usuario ha encargado a la empresa. A continuación se detalla cada uno de los campos informativos:
+
+  - Nº de pedido: Número de identificación del pedido
+  - Descripción: Breve descripción del pedido en concreto, que facilita la distinción entre ellos.
+  - Estado: Situación actual en la que se encuentra el pedido. Los diferentes estados que pueden darse son (por orden de             ascendente): Revisión, Pte entrada producción, Producción, Pte empaquetar, Pte instalación, Listo Recogida,             Listo transporte, Instalación terminada, Completo.
+  - % Completado: Dependiendo del estado del pedido, muestra el % de realización de éste a través de una barra de                         estado.
+  - Contacto técnico: Cuando un estado necesita la instalación de un profesional de la empresa, se muestra un número de                       contacto para poder establecer una cita personalmente con la persona encargada. 
+  - Entrega 
+
+
+
+
+
+
+
+
 Alojamiento con Windows Azure
 =============================
 
