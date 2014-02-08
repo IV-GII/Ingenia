@@ -162,11 +162,6 @@ def index(request):
 ~~~~~~
 
 
-
-Chef
-====
-
-
 Alta de usuario
 ===============
 Esta vista solo se podrá acceder su eres un trabajador de la empresa. Una vez que el cliente solicita el seguimiento de su pedido, uno de los trabajadores de la empresa Ingenia le dará de alta en el sistema, facilitándole un usuario y una contraseña de acceso.<br><br>
