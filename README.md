@@ -123,7 +123,11 @@ En las siguientes secciones veremos mas de cerca cada vista.</p>
 Página de Logeo
 ===============
 
-Nada más entrar a la aplicación aparece un formulario de logeo ![screenshot](http://dl.dropboxusercontent.com/s/t0rrvxr8j7ygph6/Captura%20de%20pantalla%202014-02-04%20a%20la%28s%29%2021.51.24.png) en el que nos podremos logear ya seamos clientes o trabajadores, y dependiendo del rol se tendrá una siguiente vista u otra. Para el Trabajador, la vista consistirá en un panel donde podremos dar de alta a un usuario, asignarle un pedido o actualizar el estado de un pedido. Para el Cliente, simplemente se mostrarán sus pedidos con la información de éste tal que: nº de pedido, descripción, estado, porcentaje de progreso del pedido, un número de contacto y si la entrega se hace a domicilio o viene el cliente a recogerlo.
+Nada más entrar a la aplicación aparece un formulario de logeo,
+
+![screenshot](http://dl.dropboxusercontent.com/s/t0rrvxr8j7ygph6/Captura%20de%20pantalla%202014-02-04%20a%20la%28s%29%2021.51.24.png)
+
+en el que nos podremos logear ya seamos clientes o trabajadores, y dependiendo del rol se tendrá una siguiente vista u otra. Para el Trabajador, la vista consistirá en un panel donde podremos dar de alta a un usuario, asignarle un pedido o actualizar el estado de un pedido. Para el Cliente, simplemente se mostrarán sus pedidos con la información de éste tal que: nº de pedido, descripción, estado, porcentaje de progreso del pedido, un número de contacto y si la entrega se hace a domicilio o viene el cliente a recogerlo.
 
 Para el logeo hemos usado el siguiente código:
 
