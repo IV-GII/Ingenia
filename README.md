@@ -3,6 +3,8 @@ IngeniaTracking
 
 Servicio tracking para empresa de imprenta (Ingenia):
 
+<center>![captura_logo_empresa](https://dl.dropbox.com/s/rjlmw7zqkq8kw49/logo.jpg)</center>
+
 Francisco Valverde Villalba<br>
 Juan Moral Fernandez<br>
 Rafael Carrasco Ruiz<br>
