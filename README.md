@@ -310,7 +310,7 @@ En está página se muestra el estado de los pedidos de un usuario en concreto. 
 
 Aquí tenemos una muestra de la vista de la página, en la que podemos observar los campos antes mencionados:
 
-![im1](https://dl.dropbox.com/s/6xrdo6f5pq6lb0l/Nueva%20imagen%20%283%29.bmp)
+![im1](https://dl.dropbox.com/s/dan7cgfcczlw1yj/ingenia.png)
 
 Como se muestra en la imagen anterior, la página también proporciona el nombre del cliente logueado junto a la opción de cerrar sesión.
 
